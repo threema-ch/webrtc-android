@@ -1,0 +1,132 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.2'
+    }
+}
+
+plugins {
+    id 'com.github.dcendents.android-maven' version '2.1'
+    id 'com.jfrog.bintray' version '1.8.4'
+}
+
+def webrtc_version = '72'
+def app_version = "${webrtc_version}.0.0"
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+group = 'ch.threema.webrtc'
+version = app_version
+
+// Android configuration
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    jcenter()
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    // LibWebRTC
+    implementation files('libs/libwebrtc.jar')
+    // Test dependencies
+    testImplementation 'junit:junit:4.12'
+}
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}
+
+// Upload to Bintray
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    configurations = ['archives']
+    pkg {
+        repo = 'maven'
+        name = 'webrtc-android'
+        userOrg = 'threema'
+        desc = 'WebRTC Builds for Android'
+        websiteUrl = 'https://webrtc.org/'
+        vcsUrl = 'https://github.com/threema-ch/webrtc-android.git'
+        publicDownloadNumbers = true
+        licenses = ['MIT', 'Apache-2.0']
+        labels = ['webrtc', 'android']
+        version {
+            name = app_version
+            desc = "WebRTC M${webrtc_version}"
+            released = new Date()
+            vcsTag = "v${app_version}"
+        }
+    }
+}
+
+// Upload to local Maven repo for testing
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('/tmp/maven/'))
+            pom.version = app_version
+            pom.artifactId = 'webrtc-android'
+            pom.packaging = 'aar'
+        }
+    }
+}

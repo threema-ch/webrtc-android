@@ -1,0 +1,3 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ch.threema.webrtc">
+    <application android:label="WebRTC Build for Android"></application>
+</manifest>
