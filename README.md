@@ -4,8 +4,6 @@
 
 This is a WebRTC build with Java bindings packaged for Android.
 
-The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
-
 
 ## Installing
 
@@ -29,6 +27,17 @@ Maven:
   <type>pom</type>
 </dependency>
 ```
+
+
+## Target Commits
+
+These are the target commits for the releases:
+
+- v78.0.0 [`0b2302e5e0418b6716fbc0b3927874fd3a842caf`](https://chromium.googlesource.com/external/webrtc/+/0b2302e5e0418b6716fbc0b3927874fd3a842caf)
+- v77.0.0 [`ad73985e75684cb4ac4dadb9d3d86ad0d66612a0`](https://chromium.googlesource.com/external/webrtc/+/ad73985e75684cb4ac4dadb9d3d86ad0d66612a0)
+- v76.0.0 [`9863f3d246e2da7a2e1f42bbc5757f6af5ec5682`](https://chromium.googlesource.com/external/webrtc/+/9863f3d246e2da7a2e1f42bbc5757f6af5ec5682)
+
+The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
 
 
 ## Hashes
