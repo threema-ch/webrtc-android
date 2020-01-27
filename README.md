@@ -45,7 +45,7 @@ These are the SHA256 hashes for the published releases of this project:
 
 ## License
 
-    Copyright (c) 2019 Threema GmbH
+    Copyright (c) 2019-2020 Threema GmbH
 
     Licensed under the Apache License, Version 2.0, <see LICENSE-APACHE file>
     or the MIT license <see LICENSE-MIT file>, at your option. This file may not be
