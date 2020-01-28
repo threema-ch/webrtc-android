@@ -14,7 +14,7 @@ WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:79.0.0'
+compile 'ch.threema.webrtc:webrtc-android:80.0.0'
 ```
 
 Maven:
@@ -23,7 +23,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>79.0.0</version>
+  <version>80.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -33,6 +33,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v80.0.0 [`7a0e44c1a84fb4ed57a6701cfc8093756c37af6f`](https://chromium.googlesource.com/external/webrtc/+/7a0e44c1a84fb4ed57a6701cfc8093756c37af6f)
 - v79.0.0 [`b484ec0082948ae086c2ba4142b4d2bf8bc4dd4b`](https://chromium.googlesource.com/external/webrtc/+/b484ec0082948ae086c2ba4142b4d2bf8bc4dd4b)
 - v78.0.0 [`0b2302e5e0418b6716fbc0b3927874fd3a842caf`](https://chromium.googlesource.com/external/webrtc/+/0b2302e5e0418b6716fbc0b3927874fd3a842caf)
 - v77.0.0 [`ad73985e75684cb4ac4dadb9d3d86ad0d66612a0`](https://chromium.googlesource.com/external/webrtc/+/ad73985e75684cb4ac4dadb9d3d86ad0d66612a0)
@@ -45,6 +46,7 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v80.0.0 `bb7469f49d94492b38e1df47389a45f3d9d1e419e181182ab246cde3130ce285`
 - v79.0.0 `6ec0f358ecd676ca53f433a4b7c1b6797fc406adfbdc6d4817d912656013966e`
 - v78.0.0 `2a54022e2d8d69ce33897fddb45cec74c87413eefeebc48f81eaf548b649d200`
 - v77.0.0 `24797af64d17fd195f20b264029b14ee5024b4b6fdee27bd5363bdee79a868af`
