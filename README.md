@@ -4,6 +4,8 @@
 
 This is a WebRTC build with Java bindings packaged for Android.
 
+**NOTE: Threema specific patches may have been applied in these builds!**
+
 
 ## Installing
 
@@ -14,7 +16,7 @@ WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:82.0.0'
+compile 'ch.threema.webrtc:webrtc-android:83.0.0'
 ```
 
 Maven:
@@ -23,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>82.0.0</version>
+  <version>83.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -33,6 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v83.0.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v82.0.0 [`2dd3f3af62e46101b36496cd11b9a7051a34433b`](https://chromium.googlesource.com/external/webrtc/+/2dd3f3af62e46101b36496cd11b9a7051a34433b)
 - v81.0.0 [`64649176f542fb919628e4f2149ccd1946769786`](https://chromium.googlesource.com/external/webrtc/+/64649176f542fb919628e4f2149ccd1946769786)
 - v80.0.0 [`7a0e44c1a84fb4ed57a6701cfc8093756c37af6f`](https://chromium.googlesource.com/external/webrtc/+/7a0e44c1a84fb4ed57a6701cfc8093756c37af6f)
@@ -44,10 +47,20 @@ These are the target commits for the releases:
 The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
 
 
+## Patches
+
+- v83.0.0:
+    - `dtls-cipher-suites.patch`
+    - `expose-crypto-option-aes-128-sha1-80.patch`
+    - `expose-offer-extmap-allow-mixed.patch`
+    - `srtp-cipher-suites.patch`
+
+
 ## Hashes
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v83.0.0 `076b3ddde70690db31b42268b66a3c87f2be47aa11108c86a36baa2f44bc67bb`
 - v82.0.0 `3ed4d0b43d57e2b69d104d8f2ef0f538687acdf5a4360e6a69339b21bd15c651`
 - v81.0.0 `d46c81d0ecda1cc8fe74a89a905171fb0d0c7a95c632f1612a3aaa874ca0b0a6`
 - v80.0.0 `bb7469f49d94492b38e1df47389a45f3d9d1e419e181182ab246cde3130ce285`
@@ -60,6 +73,20 @@ These are the SHA256 hashes for the published releases of this project:
 - v73.0.0 `92a10a82cb18331e863ca910c333420678e6ec0022448f2e67354845c440e0dd`
 - v72.0.1 `f23e9c382457fee661d232a8efb22fc4cfb90436a98785b2991af412faeaa99f`
 - v72.0.0 `30da1a431dd2b97b3d8492dbdfeeaf43c30e2d177e3782c098ab9d0c54d895df`
+
+
+## Local testing
+
+Create a local release to `/tmp/maven/`:
+
+    ./gradlew uploadArchives
+
+Include it in your project like this:
+
+    repositories {
+        ...
+        maven { url "/tmp/maven" }
+    }
 
 
 ## License
