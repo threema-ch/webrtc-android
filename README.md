@@ -16,7 +16,7 @@ WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:83.0.0'
+compile 'ch.threema.webrtc:webrtc-android:83.1.0'
 ```
 
 Maven:
@@ -25,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>83.0.0</version>
+  <version>83.1.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,6 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v83.1.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v83.0.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v81.0.0 [`64649176f542fb919628e4f2149ccd1946769786`](https://chromium.googlesource.com/external/webrtc/+/64649176f542fb919628e4f2149ccd1946769786)
 - v80.0.0 [`7a0e44c1a84fb4ed57a6701cfc8093756c37af6f`](https://chromium.googlesource.com/external/webrtc/+/7a0e44c1a84fb4ed57a6701cfc8093756c37af6f)
@@ -46,9 +47,25 @@ These are the target commits for the releases:
 The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
 
 
-## Patches
+## Patches / Build config
 
+- v83.1.0:
+    - `WEBRTC_COMPILE_ARGS=symbol_level=1 enable_libaom=false`
+    - `disable-dtmf-and-comfort-noise.patch`
+    - `disable-unused-audio-codecs.patch`
+    - `dont-leak-video-orientation.patch`
+    - `dtls-cipher-suites.patch`
+    - `enable-cbr-by-default.patch`
+    - `expose-crypto-option-aes-128-sha1-80.patch`
+    - `expose-offer-extmap-allow-mixed.patch`
+    - `fix-rtp-header-extension-encryption.patch`
+    - `force-dtls-1_2.patch`
+    - `libsrtp-two-byte-rtp-header-extension-crypto.patch`
+    - `objc-rtcstats-export.patch`
+    - `only-resolve-uuid-mdns-hostnames.patch`
+    - `srtp-cipher-suites.patch`
 - v83.0.0:
+    - `WEBRTC_COMPILE_ARGS=symbol_level=1`
     - `dtls-cipher-suites.patch`
     - `expose-crypto-option-aes-128-sha1-80.patch`
     - `expose-offer-extmap-allow-mixed.patch`
@@ -59,6 +76,7 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v83.1.0 `4b05eabe62470bf84adcf8b5a1eb8f99e71b0c3ecff29646626e491ebd22437d`
 - v83.0.0 `076b3ddde70690db31b42268b66a3c87f2be47aa11108c86a36baa2f44bc67bb`
 - v81.0.0 `d46c81d0ecda1cc8fe74a89a905171fb0d0c7a95c632f1612a3aaa874ca0b0a6`
 - v80.0.0 `bb7469f49d94492b38e1df47389a45f3d9d1e419e181182ab246cde3130ce285`
