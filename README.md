@@ -16,7 +16,7 @@ WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:83.1.0'
+compile 'ch.threema.webrtc:webrtc-android:83.1.1'
 ```
 
 Maven:
@@ -25,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>83.1.0</version>
+  <version>83.1.1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,6 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v83.1.1 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v83.1.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v83.0.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v81.0.0 [`64649176f542fb919628e4f2149ccd1946769786`](https://chromium.googlesource.com/external/webrtc/+/64649176f542fb919628e4f2149ccd1946769786)
@@ -49,33 +50,50 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 ## Patches / Build config
 
-- v83.1.0:
-    - `WEBRTC_COMPILE_ARGS=symbol_level=1 enable_libaom=false`
-    - `disable-dtmf-and-comfort-noise.patch`
-    - `disable-unused-audio-codecs.patch`
-    - `dont-leak-video-orientation.patch`
-    - `dtls-cipher-suites.patch`
-    - `enable-cbr-by-default.patch`
-    - `expose-crypto-option-aes-128-sha1-80.patch`
-    - `expose-offer-extmap-allow-mixed.patch`
-    - `fix-rtp-header-extension-encryption.patch`
-    - `force-dtls-1_2.patch`
-    - `libsrtp-two-byte-rtp-header-extension-crypto.patch`
-    - `objc-rtcstats-export.patch`
-    - `only-resolve-uuid-mdns-hostnames.patch`
-    - `srtp-cipher-suites.patch`
-- v83.0.0:
-    - `WEBRTC_COMPILE_ARGS=symbol_level=1`
-    - `dtls-cipher-suites.patch`
-    - `expose-crypto-option-aes-128-sha1-80.patch`
-    - `expose-offer-extmap-allow-mixed.patch`
-    - `srtp-cipher-suites.patch`
+v83.1.1 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
+    -rw-r--r-- 1 root root 3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
+    -rw-r--r-- 1 root root  16K May 26 13:53 patches/disable-unused-audio-codecs.patch
+    -rw-r--r-- 1 root root  815 May 26 13:53 patches/dont-leak-video-orientation.patch
+    -rw-r--r-- 1 root root  743 May  7 15:55 patches/dtls-cipher-suites.patch
+    -rw-r--r-- 1 root root  818 May 26 13:53 patches/enable-cbr-by-default.patch
+    -rw-r--r-- 1 root root 5.0K May  7 15:55 patches/expose-crypto-option-aes-128-sha1-80.patch
+    -rw-r--r-- 1 root root 2.3K May  7 15:55 patches/expose-offer-extmap-allow-mixed.patch
+    -rw-r--r-- 1 root root  34K May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
+    -rw-r--r-- 1 root root 1.8K May 26 13:53 patches/force-dtls-1_2.patch
+    -rw-r--r-- 1 root root  614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
+    -rw-r--r-- 1 root root  864 May 26 15:39 patches/objc-rtcstats-export.patch
+    -rw-r--r-- 1 root root 2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
+    -rw-r--r-- 1 root root 2.6K May 28 10:26 patches/srtp-cipher-suites.patch
+
+v83.1.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+    -rw-r--r-- 1 root root 3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
+    -rw-r--r-- 1 root root  16K May 26 13:53 patches/disable-unused-audio-codecs.patch
+    -rw-r--r-- 1 root root  815 May 26 13:53 patches/dont-leak-video-orientation.patch
+    -rw-r--r-- 1 root root  743 May  7 15:55 patches/dtls-cipher-suites.patch
+    -rw-r--r-- 1 root root  818 May 26 13:53 patches/enable-cbr-by-default.patch
+    -rw-r--r-- 1 root root 5.0K May  7 15:55 patches/expose-crypto-option-aes-128-sha1-80.patch
+    -rw-r--r-- 1 root root 2.3K May  7 15:55 patches/expose-offer-extmap-allow-mixed.patch
+    -rw-r--r-- 1 root root  34K May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
+    -rw-r--r-- 1 root root 1.8K May 26 13:53 patches/force-dtls-1_2.patch
+    -rw-r--r-- 1 root root  614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
+    -rw-r--r-- 1 root root  864 May 26 15:39 patches/objc-rtcstats-export.patch
+    -rw-r--r-- 1 root root 2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
+    -rw-r--r-- 1 root root  817 May 13 10:23 patches/srtp-cipher-suites.patch
+
+v83.0.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1`)
+
+- `dtls-cipher-suites.patch`
+- `expose-crypto-option-aes-128-sha1-80.patch`
+- `expose-offer-extmap-allow-mixed.patch`
+- `srtp-cipher-suites.patch`
 
 ## Hashes
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v83.1.1 `c5a14afe7a5edcade0bccb53c1308a1b0309422b6cca716822dc98fc76a0e779`
 - v83.1.0 `4b05eabe62470bf84adcf8b5a1eb8f99e71b0c3ecff29646626e491ebd22437d`
 - v83.0.0 `076b3ddde70690db31b42268b66a3c87f2be47aa11108c86a36baa2f44bc67bb`
 - v81.0.0 `d46c81d0ecda1cc8fe74a89a905171fb0d0c7a95c632f1612a3aaa874ca0b0a6`
