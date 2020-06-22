@@ -18,7 +18,7 @@ plugins {
 }
 
 def webrtc_version = '84'
-def app_version = '84.0.0'
+def app_version = '84.1.0'
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
@@ -124,7 +124,7 @@ bintray {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri('/media/veracrypt1/maven'))
+            repository(url: uri('/tmp/maven'))
             pom.version = app_version
             pom.artifactId = 'webrtc-android'
             pom.packaging = 'aar'

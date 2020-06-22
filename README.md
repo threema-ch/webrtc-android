@@ -16,7 +16,7 @@ WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:84.0.0'
+compile 'ch.threema.webrtc:webrtc-android:84.1.0'
 ```
 
 Maven:
@@ -25,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>84.0.0</version>
+  <version>84.1.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,6 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v84.1.0 [`a740523c6bb2630114937449cc97b844891cebaf`](https://chromium.googlesource.com/external/webrtc/+/a740523c6bb2630114937449cc97b844891cebaf)
 - v84.0.0 [`a740523c6bb2630114937449cc97b844891cebaf`](https://chromium.googlesource.com/external/webrtc/+/a740523c6bb2630114937449cc97b844891cebaf)
 - v83.1.1 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v83.1.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
@@ -51,7 +52,13 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 ## Patches / Build config
 
-v84.0.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+**v84.1.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+Like v84.0.0, but with the following additional patch:
+
+    -rw-r--r-- 1 root root 12394 Jun 22 15:23 patches/fix-data-channel-message-integrity.patch
+
+**v84.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
     -rw-r--r-- 1 root root  3603 May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
     -rw-r--r-- 1 root root 15479 May 26 13:53 patches/disable-unused-audio-codecs.patch
@@ -66,7 +73,7 @@ v84.0.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
     -rw-r--r-- 1 root root  2439 May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
     -rw-r--r-- 1 root root  2615 May 28 10:26 patches/srtp-cipher-suites.patch
 
-v83.1.1 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+**v83.1.1** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
     -rw-r--r-- 1 root root 3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
     -rw-r--r-- 1 root root  16K May 26 13:53 patches/disable-unused-audio-codecs.patch
@@ -82,7 +89,7 @@ v83.1.1 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
     -rw-r--r-- 1 root root 2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
     -rw-r--r-- 1 root root 2.6K May 28 10:26 patches/srtp-cipher-suites.patch
 
-v83.1.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+**v83.1.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
     -rw-r--r-- 1 root root 3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
     -rw-r--r-- 1 root root  16K May 26 13:53 patches/disable-unused-audio-codecs.patch
@@ -98,7 +105,7 @@ v83.1.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
     -rw-r--r-- 1 root root 2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
     -rw-r--r-- 1 root root  817 May 13 10:23 patches/srtp-cipher-suites.patch
 
-v83.0.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1`)
+**v83.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1`)
 
 - `dtls-cipher-suites.patch`
 - `expose-crypto-option-aes-128-sha1-80.patch`
@@ -109,6 +116,7 @@ v83.0.0 (`WEBRTC_COMPILE_ARGS: symbol_level=1`)
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v84.1.0 `d514bd6b770efe60c8de390c63aa893742376e32f67f692305b424e534d30036`
 - v84.0.0 `8a0b44347669ea46c61edb783e2f04195fb8a6a36d95751947b218f7275d45eb`
 - v83.1.1 `c5a14afe7a5edcade0bccb53c1308a1b0309422b6cca716822dc98fc76a0e779`
 - v83.1.0 `4b05eabe62470bf84adcf8b5a1eb8f99e71b0c3ecff29646626e491ebd22437d`
