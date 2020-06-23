@@ -41,6 +41,7 @@ These are the target commits for the releases:
 - v83.1.1 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v83.1.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
 - v83.0.0 [`e2ad989961f3de12e2c352521fcfdad6e66b6359`](https://chromium.googlesource.com/external/webrtc/+/e2ad989961f3de12e2c352521fcfdad6e66b6359)
+- v81.1.0 [`76725a6a631c4f21db1f5560eece2feb78b20aca`](https://chromium.googlesource.com/external/webrtc/+/76725a6a631c4f21db1f5560eece2feb78b20aca)
 - v81.0.0 [`64649176f542fb919628e4f2149ccd1946769786`](https://chromium.googlesource.com/external/webrtc/+/64649176f542fb919628e4f2149ccd1946769786)
 - v80.0.0 [`7a0e44c1a84fb4ed57a6701cfc8093756c37af6f`](https://chromium.googlesource.com/external/webrtc/+/7a0e44c1a84fb4ed57a6701cfc8093756c37af6f)
 - v79.0.0 [`b484ec0082948ae086c2ba4142b4d2bf8bc4dd4b`](https://chromium.googlesource.com/external/webrtc/+/b484ec0082948ae086c2ba4142b4d2bf8bc4dd4b)
@@ -117,6 +118,12 @@ Like v84.0.0, but with the following additional patch:
 - `expose-offer-extmap-allow-mixed.patch`
 - `srtp-cipher-suites.patch`
 
+**v81.1.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`)
+
+    -rw-r--r-- 1 root root 12392 Jun 23 09:01 patches/fix-data-channel-message-integrity.patch
+    -rw-r--r-- 1 root root  8201 Jun 23 09:01 patches/fix-sctp-pointer-leak.patch
+
+
 ## Hashes
 
 These are the SHA256 hashes for the published releases of this project:
@@ -127,6 +134,7 @@ These are the SHA256 hashes for the published releases of this project:
 - v83.1.1 `c5a14afe7a5edcade0bccb53c1308a1b0309422b6cca716822dc98fc76a0e779`
 - v83.1.0 `4b05eabe62470bf84adcf8b5a1eb8f99e71b0c3ecff29646626e491ebd22437d`
 - v83.0.0 `076b3ddde70690db31b42268b66a3c87f2be47aa11108c86a36baa2f44bc67bb`
+- v81.1.0 `b4315cad78f5ce6ff79bc1091cd44361fbe90c1d32edc5f25b426ddfa261bea8`
 - v81.0.0 `d46c81d0ecda1cc8fe74a89a905171fb0d0c7a95c632f1612a3aaa874ca0b0a6`
 - v80.0.0 `bb7469f49d94492b38e1df47389a45f3d9d1e419e181182ab246cde3130ce285`
 - v79.0.0 `6ec0f358ecd676ca53f433a4b7c1b6797fc406adfbdc6d4817d912656013966e`
