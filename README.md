@@ -16,7 +16,7 @@ WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:84.1.1'
+compile 'ch.threema.webrtc:webrtc-android:84.2.0'
 ```
 
 Maven:
@@ -25,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>84.1.1</version>
+  <version>84.2.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,6 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v84.2.0 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.1.1 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.1.0 [`a740523c6bb2630114937449cc97b844891cebaf`](https://chromium.googlesource.com/external/webrtc/+/a740523c6bb2630114937449cc97b844891cebaf)
 - v84.0.0 [`a740523c6bb2630114937449cc97b844891cebaf`](https://chromium.googlesource.com/external/webrtc/+/a740523c6bb2630114937449cc97b844891cebaf)
@@ -53,6 +54,12 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 
 ## Patches / Build config
+
+**v84.2.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+Like v84.1.0, but with the following additional patch:
+
+    -rw-r--r-- 1 root root  3636 Nov 10 16:37 patches/expose-video-capturer-state.patch
 
 **v84.1.1** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
@@ -128,6 +135,7 @@ Like v84.0.0, but with the following additional patch:
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v84.2.0 `a66dcfa6b27f51d396b6a458ffca97ec463c820889e2e619a763976cacb0aa64`
 - v84.1.1 `23c96340d055b5bd27503f6ebad831f0222689c4cc8816aa343e8f3110566419`
 - v84.1.0 `d514bd6b770efe60c8de390c63aa893742376e32f67f692305b424e534d30036`
 - v84.0.0 `8a0b44347669ea46c61edb783e2f04195fb8a6a36d95751947b218f7275d45eb`

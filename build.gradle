@@ -17,8 +17,8 @@ plugins {
     id 'com.jfrog.bintray' version '1.8.4'
 }
 
-def webrtc_version = '81'
-def app_version = '81.1.0'
+def webrtc_version = '84'
+def app_version = '84.2.0'
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
@@ -124,7 +124,7 @@ bintray {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri('/tmp/maven'))
+            repository(url: uri('/media/veracrypt1/maven'))
             pom.version = app_version
             pom.artifactId = 'webrtc-android'
             pom.packaging = 'aar'
