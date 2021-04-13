@@ -13,10 +13,13 @@ The package is available [on
 Bintray](https://bintray.com/threema/maven/webrtc-android/). It includes the
 WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
 
+> :warning: **Note:** Version 91 will probably be the last version uploaded to Bintray.
+> Future versions will be uploaded to Maven Central only!
+
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:84.2.0'
+compile 'ch.threema.webrtc:webrtc-android:91.0.0'
 ```
 
 Maven:
@@ -25,7 +28,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>84.2.0</version>
+  <version>91.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,6 +38,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v91.0.0 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v84.2.0 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.1.1 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.1.0 [`a740523c6bb2630114937449cc97b844891cebaf`](https://chromium.googlesource.com/external/webrtc/+/a740523c6bb2630114937449cc97b844891cebaf)
@@ -55,11 +59,25 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 ## Patches / Build config
 
+**v91.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+     5162 2021-04-09 13:22 patches/disable-dtmf-and-comfort-noise.patch
+    15479 2021-04-09 13:00 patches/disable-unused-audio-codecs.patch
+      815 2021-04-09 13:00 patches/dont-leak-video-orientation.patch
+      743 2021-04-09 13:00 patches/dtls-cipher-suites.patch
+      818 2021-04-09 13:00 patches/enable-cbr-by-default.patch
+     8831 2021-04-09 13:00 patches/expose-crypto-option-aes-128-sha1-80.patch
+     3628 2021-04-09 13:00 patches/expose-video-capturer-state.patch
+    49010 2021-04-09 13:00 patches/fix-rtp-header-extension-encryption.patch
+     1750 2021-04-09 13:00 patches/force-dtls-1_2.patch
+     2439 2021-04-09 13:00 patches/only-resolve-uuid-mdns-hostnames.patch
+     2615 2021-04-09 13:00 patches/srtp-cipher-suites.patch
+
 **v84.2.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
 Like v84.1.0, but with the following additional patch:
 
-    -rw-r--r-- 1 root root  3636 Nov 10 16:37 patches/expose-video-capturer-state.patch
+    3636 Nov 10 16:37 patches/expose-video-capturer-state.patch
 
 **v84.1.1** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
@@ -69,54 +87,54 @@ Like v84.1.0, but based on commit `963cc1ef1336b52ca27742beb28bfbc211ed54d0`.
 
 Like v84.0.0, but with the following additional patch:
 
-    -rw-r--r-- 1 root root 12394 Jun 22 15:23 patches/fix-data-channel-message-integrity.patch
+    12394 Jun 22 15:23 patches/fix-data-channel-message-integrity.patch
 
 **v84.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
-    -rw-r--r-- 1 root root  3603 May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
-    -rw-r--r-- 1 root root 15479 May 26 13:53 patches/disable-unused-audio-codecs.patch
-    -rw-r--r-- 1 root root   815 May 26 13:53 patches/dont-leak-video-orientation.patch
-    -rw-r--r-- 1 root root   743 May  7 15:55 patches/dtls-cipher-suites.patch
-    -rw-r--r-- 1 root root   818 May 26 13:53 patches/enable-cbr-by-default.patch
-    -rw-r--r-- 1 root root  8831 Jun 15 15:18 patches/expose-crypto-option-aes-128-sha1-80.patch
-    -rw-r--r-- 1 root root  4718 Jun 15 15:17 patches/expose-offer-extmap-allow-mixed.patch
-    -rw-r--r-- 1 root root 34276 May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
-    -rw-r--r-- 1 root root  1750 May 26 13:53 patches/force-dtls-1_2.patch
-    -rw-r--r-- 1 root root   614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
-    -rw-r--r-- 1 root root  2439 May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
-    -rw-r--r-- 1 root root  2615 May 28 10:26 patches/srtp-cipher-suites.patch
+     3603 May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
+    15479 May 26 13:53 patches/disable-unused-audio-codecs.patch
+      815 May 26 13:53 patches/dont-leak-video-orientation.patch
+      743 May  7 15:55 patches/dtls-cipher-suites.patch
+      818 May 26 13:53 patches/enable-cbr-by-default.patch
+     8831 Jun 15 15:18 patches/expose-crypto-option-aes-128-sha1-80.patch
+     4718 Jun 15 15:17 patches/expose-offer-extmap-allow-mixed.patch
+    34276 May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
+     1750 May 26 13:53 patches/force-dtls-1_2.patch
+      614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
+     2439 May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
+     2615 May 28 10:26 patches/srtp-cipher-suites.patch
 
 **v83.1.1** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
-    -rw-r--r-- 1 root root 3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
-    -rw-r--r-- 1 root root  16K May 26 13:53 patches/disable-unused-audio-codecs.patch
-    -rw-r--r-- 1 root root  815 May 26 13:53 patches/dont-leak-video-orientation.patch
-    -rw-r--r-- 1 root root  743 May  7 15:55 patches/dtls-cipher-suites.patch
-    -rw-r--r-- 1 root root  818 May 26 13:53 patches/enable-cbr-by-default.patch
-    -rw-r--r-- 1 root root 5.0K May  7 15:55 patches/expose-crypto-option-aes-128-sha1-80.patch
-    -rw-r--r-- 1 root root 2.3K May  7 15:55 patches/expose-offer-extmap-allow-mixed.patch
-    -rw-r--r-- 1 root root  34K May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
-    -rw-r--r-- 1 root root 1.8K May 26 13:53 patches/force-dtls-1_2.patch
-    -rw-r--r-- 1 root root  614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
-    -rw-r--r-- 1 root root  864 May 26 15:39 patches/objc-rtcstats-export.patch
-    -rw-r--r-- 1 root root 2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
-    -rw-r--r-- 1 root root 2.6K May 28 10:26 patches/srtp-cipher-suites.patch
+    3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
+     16K May 26 13:53 patches/disable-unused-audio-codecs.patch
+     815 May 26 13:53 patches/dont-leak-video-orientation.patch
+     743 May  7 15:55 patches/dtls-cipher-suites.patch
+     818 May 26 13:53 patches/enable-cbr-by-default.patch
+    5.0K May  7 15:55 patches/expose-crypto-option-aes-128-sha1-80.patch
+    2.3K May  7 15:55 patches/expose-offer-extmap-allow-mixed.patch
+     34K May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
+    1.8K May 26 13:53 patches/force-dtls-1_2.patch
+     614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
+     864 May 26 15:39 patches/objc-rtcstats-export.patch
+    2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
+    2.6K May 28 10:26 patches/srtp-cipher-suites.patch
 
 **v83.1.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
-    -rw-r--r-- 1 root root 3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
-    -rw-r--r-- 1 root root  16K May 26 13:53 patches/disable-unused-audio-codecs.patch
-    -rw-r--r-- 1 root root  815 May 26 13:53 patches/dont-leak-video-orientation.patch
-    -rw-r--r-- 1 root root  743 May  7 15:55 patches/dtls-cipher-suites.patch
-    -rw-r--r-- 1 root root  818 May 26 13:53 patches/enable-cbr-by-default.patch
-    -rw-r--r-- 1 root root 5.0K May  7 15:55 patches/expose-crypto-option-aes-128-sha1-80.patch
-    -rw-r--r-- 1 root root 2.3K May  7 15:55 patches/expose-offer-extmap-allow-mixed.patch
-    -rw-r--r-- 1 root root  34K May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
-    -rw-r--r-- 1 root root 1.8K May 26 13:53 patches/force-dtls-1_2.patch
-    -rw-r--r-- 1 root root  614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
-    -rw-r--r-- 1 root root  864 May 26 15:39 patches/objc-rtcstats-export.patch
-    -rw-r--r-- 1 root root 2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
-    -rw-r--r-- 1 root root  817 May 13 10:23 patches/srtp-cipher-suites.patch
+    3.6K May 26 13:53 patches/disable-dtmf-and-comfort-noise.patch
+     16K May 26 13:53 patches/disable-unused-audio-codecs.patch
+     815 May 26 13:53 patches/dont-leak-video-orientation.patch
+     743 May  7 15:55 patches/dtls-cipher-suites.patch
+     818 May 26 13:53 patches/enable-cbr-by-default.patch
+    5.0K May  7 15:55 patches/expose-crypto-option-aes-128-sha1-80.patch
+    2.3K May  7 15:55 patches/expose-offer-extmap-allow-mixed.patch
+     34K May 26 13:53 patches/fix-rtp-header-extension-encryption.patch
+    1.8K May 26 13:53 patches/force-dtls-1_2.patch
+     614 May 26 16:02 patches/libsrtp-two-byte-rtp-header-extension-crypto.patch
+     864 May 26 15:39 patches/objc-rtcstats-export.patch
+    2.4K May 26 13:53 patches/only-resolve-uuid-mdns-hostnames.patch
+     817 May 13 10:23 patches/srtp-cipher-suites.patch
 
 **v83.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1`)
 
@@ -127,14 +145,15 @@ Like v84.0.0, but with the following additional patch:
 
 **v81.1.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`)
 
-    -rw-r--r-- 1 root root 12392 Jun 23 09:01 patches/fix-data-channel-message-integrity.patch
-    -rw-r--r-- 1 root root  8201 Jun 23 09:01 patches/fix-sctp-pointer-leak.patch
+    12392 Jun 23 09:01 patches/fix-data-channel-message-integrity.patch
+     8201 Jun 23 09:01 patches/fix-sctp-pointer-leak.patch
 
 
 ## Hashes
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v91.0.0 `cbb3ed1e4d93dd294eccd7f84a80fdd5751061258c881c76455d9c0bf1be133f`
 - v84.2.0 `a66dcfa6b27f51d396b6a458ffca97ec463c820889e2e619a763976cacb0aa64`
 - v84.1.1 `23c96340d055b5bd27503f6ebad831f0222689c4cc8816aa343e8f3110566419`
 - v84.1.0 `d514bd6b770efe60c8de390c63aa893742376e32f67f692305b424e534d30036`
@@ -172,7 +191,7 @@ Include it in your project like this:
 
 ## License
 
-    Copyright (c) 2019-2020 Threema GmbH
+    Copyright (c) 2019-2021 Threema GmbH
 
     Licensed under the Apache License, Version 2.0, <see LICENSE-APACHE file>
     or the MIT license <see LICENSE-MIT file>, at your option. This file may not be

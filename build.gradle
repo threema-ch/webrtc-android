@@ -17,8 +17,8 @@ plugins {
     id 'com.jfrog.bintray' version '1.8.4'
 }
 
-def webrtc_version = '84'
-def app_version = '84.2.0'
+def webrtc_version = '91'
+def app_version = '91.0.0'
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
