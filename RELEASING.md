@@ -4,8 +4,9 @@ Set variables:
 
     export VERSION=X.Y.Z
     export GPG_KEY=E7ADD9914E260E8B35DFB50665FDE935573ACDA6
-    export BINTRAY_USER=...
-    export BINTRAY_KEY=...
+
+Ensure that `ossrhUsername` and `ossrhPassword` are defined in your
+`~/.gradle/gradle.properties` file.
 
 Update version numbers:
 
@@ -16,20 +17,20 @@ Build:
     rm -r build
     ./gradlew build
 
-Add hash to README.md:
-
-    sha256sum build/outputs/aar/webrtc-android-release.aar
-
 Add and commit:
 
     git commit -S${GPG_KEY} -m "Release v${VERSION}"
 
-Publish the library to Bintray:
+Publish the library to Sonatype OSS / Maven Central:
 
-    ./gradlew bintrayUpload
+    ./gradlew publish
+
+Afterwards, go to https://s01.oss.sonatype.org/#stagingRepositories and:
+
+- Close the repository
+- Release the repository
 
 Tag and push:
 
     git tag -s -u ${GPG_KEY} v${VERSION} -m "Version ${VERSION}"
     git push && git push --tags
-

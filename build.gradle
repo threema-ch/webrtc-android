@@ -1,29 +1,25 @@
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.android.tools.build:gradle:4.1.3'
     }
 }
 
 plugins {
-    id 'com.github.dcendents.android-maven' version '2.1'
-    id 'com.jfrog.bintray' version '1.8.4'
+    id 'maven-publish'
+    id 'signing'
 }
 
-def webrtc_version = '91'
-def app_version = '91.0.0'
+ext {
+    groupId = 'ch.threema'
+    webrtcVersion = '91'
+    libraryVersion = '91.0.0'
+}
 
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
-group = 'ch.threema.webrtc'
-version = app_version
 
 // Android configuration
 android {
@@ -64,10 +60,7 @@ android {
 // In this section you declare where to find the dependencies of your project
 repositories {
     jcenter()
-    maven {
-        url 'https://maven.google.com/'
-        name 'Google'
-    }
+    google()
 }
 
 // In this section you declare the dependencies for your production and test code
@@ -76,6 +69,74 @@ dependencies {
     implementation files('libs/libwebrtc.jar')
     // Test dependencies
     testImplementation 'junit:junit:4.12'
+}
+
+// Note: Because the android components are created only during the
+// afterEvaluate phase, you must configure your publications using the
+// afterEvaluate() lifecycle method.
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                artifact androidSourcesJar
+                artifact androidJavadocsJar
+
+                groupId = project.ext.groupId
+                artifactId = project.name
+                version = project.ext.libraryVersion
+
+                pom {
+                    name = 'WebRTC for Android'
+                    description = "WebRTC m${project.ext.webrtcVersion} builds for Android, with some custom patches applied"
+                    url = 'https://github.com/threema-ch/webrtc-android'
+
+                    scm {
+                        url = 'https://github.com/threema-ch/webrtc-android'
+                    }
+
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'LICENSE-APACHE'
+                        }
+                        license {
+                            name = 'The MIT License'
+                            url = 'LICENSE-MIT'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'db'
+                            name = 'Danilo Bargen'
+                            email = 'danilo.bargen@threema.ch'
+                        }
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                def releasesRepoUrl = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+                def snapshotsRepoUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots'
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
+                    credentials {
+                        username ossrhUsername
+                        password ossrhPassword
+                    }
+                }
+            }
+        }
+    }
+
+    signing {
+        useGpgCmd() // Use gpg-agent. For config options, see `gradle.properties`.
+        sign publishing.publications.release
+    }
 }
 
 task androidJavadocs(type: Javadoc) {
@@ -94,40 +155,4 @@ task androidSourcesJar(type: Jar) {
 artifacts {
     archives androidSourcesJar
     archives androidJavadocsJar
-}
-
-// Upload to Bintray
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    configurations = ['archives']
-    pkg {
-        repo = 'maven'
-        name = 'webrtc-android'
-        userOrg = 'threema'
-        desc = 'WebRTC Builds for Android'
-        websiteUrl = 'https://webrtc.org/'
-        vcsUrl = 'https://github.com/threema-ch/webrtc-android.git'
-        publicDownloadNumbers = true
-        licenses = ['MIT', 'Apache-2.0']
-        labels = ['webrtc', 'android']
-        version {
-            name = app_version
-            desc = "WebRTC M${webrtc_version}"
-            released = new Date()
-            vcsTag = "v${app_version}"
-        }
-    }
-}
-
-// Upload to local Maven repo for testing
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: uri('/media/veracrypt1/maven'))
-            pom.version = app_version
-            pom.artifactId = 'webrtc-android'
-            pom.packaging = 'aar'
-        }
-    }
 }

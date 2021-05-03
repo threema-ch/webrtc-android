@@ -9,17 +9,14 @@ This is a WebRTC build with Java bindings packaged for Android.
 
 ## Installing
 
-The package is available [on
-Bintray](https://bintray.com/threema/maven/webrtc-android/). It includes the
-WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit builds.
-
-> :warning: **Note:** Version 91 will probably be the last version uploaded to Bintray.
-> Future versions will be uploaded to Maven Central only!
+This package is available on Maven Central (starting with version 91.0.1). It
+includes the WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit
+builds.
 
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:91.0.0'
+compile 'ch.threema.webrtc:webrtc-android:91.0.1'
 ```
 
 Maven:
@@ -28,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema.webrtc</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>91.0.0</version>
+  <version>91.0.1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -38,6 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v91.0.1 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v91.0.0 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v84.2.0 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.1.1 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
@@ -58,6 +56,11 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 
 ## Patches / Build config
+
+**v91.0.1** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+Like v91.0.0, but packaging was upgraded to Gradle 6.8 and the maven-publish plugin.
+Starting with this release, the library will only be published to Maven Central.
 
 **v91.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
@@ -153,6 +156,7 @@ Like v84.0.0, but with the following additional patch:
 
 These are the SHA256 hashes for the published releases of this project:
 
+- v91.0.1 ``
 - v91.0.0 `cbb3ed1e4d93dd294eccd7f84a80fdd5751061258c881c76455d9c0bf1be133f`
 - v84.2.0 `a66dcfa6b27f51d396b6a458ffca97ec463c820889e2e619a763976cacb0aa64`
 - v84.1.1 `23c96340d055b5bd27503f6ebad831f0222689c4cc8816aa343e8f3110566419`
@@ -177,15 +181,15 @@ These are the SHA256 hashes for the published releases of this project:
 
 ## Local testing
 
-Create a local release to `/tmp/maven/`:
+Create a local publication (usually at `$HOME/.m2/repository/`):
 
-    ./gradlew uploadArchives
+    ./gradlew publishToMavenLocal
 
 Include it in your project like this:
 
     repositories {
         ...
-        maven { url "/tmp/maven" }
+        mavenLocal()
     }
 
 
