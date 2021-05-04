@@ -16,14 +16,14 @@ builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema.webrtc:webrtc-android:91.0.1'
+compile 'ch.threema:webrtc-android:91.0.1'
 ```
 
 Maven:
 
 ```xml
 <dependency>
-  <groupId>ch.threema.webrtc</groupId>
+  <groupId>ch.threema</groupId>
   <artifactId>webrtc-android</artifactId>
   <version>91.0.1</version>
   <type>pom</type>
@@ -152,31 +152,13 @@ Like v84.0.0, but with the following additional patch:
      8201 Jun 23 09:01 patches/fix-sctp-pointer-leak.patch
 
 
-## Hashes
+## Signatures
 
-These are the SHA256 hashes for the published releases of this project:
+Releases to Maven Central are signed with the following PGP key:
 
-- v91.0.1 ``
-- v91.0.0 `cbb3ed1e4d93dd294eccd7f84a80fdd5751061258c881c76455d9c0bf1be133f`
-- v84.2.0 `a66dcfa6b27f51d396b6a458ffca97ec463c820889e2e619a763976cacb0aa64`
-- v84.1.1 `23c96340d055b5bd27503f6ebad831f0222689c4cc8816aa343e8f3110566419`
-- v84.1.0 `d514bd6b770efe60c8de390c63aa893742376e32f67f692305b424e534d30036`
-- v84.0.0 `8a0b44347669ea46c61edb783e2f04195fb8a6a36d95751947b218f7275d45eb`
-- v83.1.1 `c5a14afe7a5edcade0bccb53c1308a1b0309422b6cca716822dc98fc76a0e779`
-- v83.1.0 `4b05eabe62470bf84adcf8b5a1eb8f99e71b0c3ecff29646626e491ebd22437d`
-- v83.0.0 `076b3ddde70690db31b42268b66a3c87f2be47aa11108c86a36baa2f44bc67bb`
-- v81.1.0 `b4315cad78f5ce6ff79bc1091cd44361fbe90c1d32edc5f25b426ddfa261bea8`
-- v81.0.0 `d46c81d0ecda1cc8fe74a89a905171fb0d0c7a95c632f1612a3aaa874ca0b0a6`
-- v80.0.0 `bb7469f49d94492b38e1df47389a45f3d9d1e419e181182ab246cde3130ce285`
-- v79.0.0 `6ec0f358ecd676ca53f433a4b7c1b6797fc406adfbdc6d4817d912656013966e`
-- v78.0.0 `2a54022e2d8d69ce33897fddb45cec74c87413eefeebc48f81eaf548b649d200`
-- v77.0.0 `24797af64d17fd195f20b264029b14ee5024b4b6fdee27bd5363bdee79a868af`
-- v76.0.0 `7164372eb184e50081ab3139edf4e66c3aaa8b017b44b8fd42ef8e9f372f85a5`
-- v75.0.0 `9bdf02510ab8b30506557425985584441ee712ea435db4c6cd8d11116edba5d9`
-- v74.0.0 `0e61dcde1e0242db69b7798a705126c638170deac06c4dc927beea2922be1768`
-- v73.0.0 `92a10a82cb18331e863ca910c333420678e6ec0022448f2e67354845c440e0dd`
-- v72.0.1 `f23e9c382457fee661d232a8efb22fc4cfb90436a98785b2991af412faeaa99f`
-- v72.0.0 `30da1a431dd2b97b3d8492dbdfeeaf43c30e2d177e3782c098ab9d0c54d895df`
+    pub   rsa4096 2016-09-06 [SC] [expires: 2026-09-04]
+          E7AD D991 4E26 0E8B 35DF  B506 65FD E935 573A CDA6
+    uid           Threema Signing Key <dev@threema.ch>
 
 
 ## Local testing

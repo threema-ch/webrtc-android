@@ -16,7 +16,7 @@ plugins {
 ext {
     groupId = 'ch.threema'
     webrtcVersion = '91'
-    libraryVersion = '91.0.0'
+    libraryVersion = '91.0.1'
 }
 
 apply plugin: 'com.android.library'
