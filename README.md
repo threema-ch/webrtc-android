@@ -37,6 +37,7 @@ These are the target commits for the releases:
 
 - v91.0.1 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v91.0.0 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
+- v84.2.1 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.2.0 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.1.1 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
 - v84.1.0 [`a740523c6bb2630114937449cc97b844891cebaf`](https://chromium.googlesource.com/external/webrtc/+/a740523c6bb2630114937449cc97b844891cebaf)
@@ -75,6 +76,10 @@ Starting with this release, the library will only be published to Maven Central.
      1750 2021-04-09 13:00 patches/force-dtls-1_2.patch
      2439 2021-04-09 13:00 patches/only-resolve-uuid-mdns-hostnames.patch
      2615 2021-04-09 13:00 patches/srtp-cipher-suites.patch
+
+**v84.2.1** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+Like v84.2.0, but released to Maven Central for easier backwards compatibility.
 
 **v84.2.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
