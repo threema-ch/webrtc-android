@@ -4,8 +4,8 @@
 
 This is a WebRTC build with Java bindings packaged for Android.
 
-**NOTE: Threema specific patches may have been applied in these builds!**
-
+> :warning: This build of WebRTC contains patches specific to Threema. We offer
+> no support for this package outside of Threema.
 
 ## Installing
 
