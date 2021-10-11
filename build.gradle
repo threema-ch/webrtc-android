@@ -15,8 +15,8 @@ plugins {
 
 ext {
     groupId = 'ch.threema'
-    webrtcVersion = '84'
-    libraryVersion = '84.2.1'
+    webrtcVersion = '94'
+    libraryVersion = '94.0.0'
 }
 
 apply plugin: 'com.android.library'
@@ -24,7 +24,7 @@ apply plugin: 'com.android.library'
 // Android configuration
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         minSdkVersion 16
@@ -68,7 +68,7 @@ dependencies {
     // LibWebRTC
     implementation files('libs/libwebrtc.jar')
     // Test dependencies
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 // Note: Because the android components are created only during the

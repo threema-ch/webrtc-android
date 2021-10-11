@@ -9,14 +9,14 @@ This is a WebRTC build with Java bindings packaged for Android.
 
 ## Installing
 
-This package is available on Maven Central (starting with version 91.0.1). It
+This package is available on Maven Central (starting with version 94.0.0). It
 includes the WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit
 builds.
 
 Gradle:
 
 ```groovy
-compile 'ch.threema:webrtc-android:91.0.1'
+compile 'ch.threema:webrtc-android:94.0.0'
 ```
 
 Maven:
@@ -25,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>91.0.1</version>
+  <version>94.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,6 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v94.0.0 [`b83487f08ff836437715b488f73416215e5570dd`](https://chromium.googlesource.com/external/webrtc/+/b83487f08ff836437715b488f73416215e5570dd)
 - v91.0.1 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v91.0.0 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v84.2.1 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
@@ -57,6 +58,20 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 
 ## Patches / Build config
+
+**v94.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+     5162 2021-04-09 13:22 patches/disable-dtmf-and-comfort-noise.patch
+    15479 2021-04-09 13:00 patches/disable-unused-audio-codecs.patch
+      815 2021-04-09 13:00 patches/dont-leak-video-orientation.patch
+      743 2021-04-09 13:00 patches/dtls-cipher-suites.patch
+      818 2021-04-09 13:00 patches/enable-cbr-by-default.patch
+     8831 2021-04-09 13:00 patches/expose-crypto-option-aes-128-sha1-80.patch
+     3628 2021-04-09 13:00 patches/expose-video-capturer-state.patch
+     1750 2021-04-09 13:00 patches/force-dtls-1_2.patch
+     2453 2021-10-04 09:20 patches/only-resolve-uuid-mdns-hostnames.patch
+     2574 2021-10-04 09:31 patches/srtp-cipher-suites.patch
+     2156 2021-10-04 09:48 patches/unreachable-code-warnings.patch
 
 **v91.0.1** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
