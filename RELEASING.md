@@ -24,10 +24,12 @@ Publish the library to Sonatype OSS / Maven Central:
 
     ./gradlew publish
 
-Afterwards, go to https://s01.oss.sonatype.org/#stagingRepositories and:
+Afterwards, go to <https://s01.oss.sonatype.org/#stagingRepositories> and:
 
 - Close the repository
 - Release the repository
+
+*Note: It may take a while until the release is visible!*
 
 Tag and push:
 
