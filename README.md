@@ -9,7 +9,7 @@ This is a WebRTC build with Java bindings packaged for Android.
 
 ## Installing
 
-This package is available on Maven Central (starting with version 94.0.0). It
+This package is available on Maven Central (starting with version 91.0.1). It
 includes the WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit
 builds.
 
