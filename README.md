@@ -16,7 +16,7 @@ builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema:webrtc-android:94.0.0'
+compile 'ch.threema:webrtc-android:100.0.0'
 ```
 
 Maven:
@@ -25,7 +25,7 @@ Maven:
 <dependency>
   <groupId>ch.threema</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>94.0.0</version>
+  <version>100.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,7 +35,7 @@ Maven:
 
 These are the target commits for the releases:
 
-- v94.0.0 [`b83487f08ff836437715b488f73416215e5570dd`](https://chromium.googlesource.com/external/webrtc/+/b83487f08ff836437715b488f73416215e5570dd)
+- v100.0.0 [`ffd9187dc0d9211ad52173bf0daa5001ca7d45ee`](https://chromium.googlesource.com/external/webrtc/+/ffd9187dc0d9211ad52173bf0daa5001ca7d45ee)
 - v91.0.1 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v91.0.0 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v84.2.1 [`963cc1ef1336b52ca27742beb28bfbc211ed54d0`](https://chromium.googlesource.com/external/webrtc/+/963cc1ef1336b52ca27742beb28bfbc211ed54d0)
@@ -58,6 +58,19 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
 
 
 ## Patches / Build config
+
+**v100.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+     5934 2022-04-07 04:42 patches/disable-dtmf-and-comfort-noise.patch
+    16331 2022-04-07 04:42 patches/disable-unused-audio-codecs.patch
+      815 2022-04-06 13:45 patches/dont-leak-video-orientation.patch
+      687 2022-04-07 04:42 patches/dtls-cipher-suites.patch
+      818 2022-04-06 13:45 patches/enable-cbr-by-default.patch
+     8831 2022-04-06 13:45 patches/expose-crypto-option-aes-128-sha1-80.patch
+     3628 2022-04-06 13:45 patches/expose-video-capturer-state.patch
+     1750 2022-04-06 13:45 patches/force-dtls-1_2.patch
+     2453 2022-04-06 13:45 patches/only-resolve-uuid-mdns-hostnames.patch
+     2574 2022-04-06 13:45 patches/srtp-cipher-suites.patch
 
 **v94.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
@@ -197,7 +210,7 @@ Include it in your project like this:
 
 ## License
 
-    Copyright (c) 2019-2021 Threema GmbH
+    Copyright (c) 2019-2022 Threema GmbH
 
     Licensed under the Apache License, Version 2.0, <see LICENSE-APACHE file>
     or the MIT license <see LICENSE-MIT file>, at your option. This file may not be
