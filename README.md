@@ -4,8 +4,17 @@
 
 This is a WebRTC build with Java bindings packaged for Android.
 
-> :warning: This build of WebRTC contains patches specific to Threema. We offer
-> no support for this package outside of Threema.
+> :warning: **Warning:** This build of WebRTC contains [patches specific to
+> Threema][patches] (see section "Patches / Build config" below). Certain
+> aspects (for example audio codecs, RTP header extensions or ciphersuite
+> selection) may behave differently than stock WebRTC and you might run into
+> compatibility issues in some cases. We offer no support for this package
+> outside of Threema. If you need help with WebRTC, try asking in the
+> [discuss-webrtc mailing list][discuss-webrtc] or on StackOverflow.
+
+[patches]: https://github.com/threema-ch/webrtc-build-docker/tree/master/patches
+[discuss-webrtc]: https://groups.google.com/g/discuss-webrtc
+
 
 ## Installing
 
@@ -54,10 +63,10 @@ These are the target commits for the releases:
 - v77.0.0 [`ad73985e75684cb4ac4dadb9d3d86ad0d66612a0`](https://chromium.googlesource.com/external/webrtc/+/ad73985e75684cb4ac4dadb9d3d86ad0d66612a0)
 - v76.0.0 [`9863f3d246e2da7a2e1f42bbc5757f6af5ec5682`](https://chromium.googlesource.com/external/webrtc/+/9863f3d246e2da7a2e1f42bbc5757f6af5ec5682)
 
-The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
-
 
 ## Patches / Build config
+
+The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
 
 **v100.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
