@@ -25,7 +25,7 @@ builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema:webrtc-android:100.0.0'
+compile 'ch.threema:webrtc-android:108.0.0'
 ```
 
 Maven:
@@ -34,7 +34,7 @@ Maven:
 <dependency>
   <groupId>ch.threema</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>100.0.0</version>
+  <version>108.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -44,6 +44,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v108.0.0 [`93081d594f7efff72958a79251f53731b99e902b`](https://chromium.googlesource.com/external/webrtc/+/93081d594f7efff72958a79251f53731b99e902b)
 - v100.0.0 [`ffd9187dc0d9211ad52173bf0daa5001ca7d45ee`](https://chromium.googlesource.com/external/webrtc/+/ffd9187dc0d9211ad52173bf0daa5001ca7d45ee)
 - v91.0.1 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
 - v91.0.0 [`3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3`](https://chromium.googlesource.com/external/webrtc/+/3e0c60ba4ef28a9f26fe991e5eec3150402c7dd3)
@@ -67,6 +68,20 @@ These are the target commits for the releases:
 ## Patches / Build config
 
 The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
+
+**v108.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
+
+     5872 2022-12-15 22:49 /patches/disable-dtmf-and-comfort-noise.patch
+    16587 2022-12-15 22:49 /patches/disable-unused-audio-codecs.patch
+      815 2021-04-08 19:16 /patches/dont-leak-video-orientation.patch
+      687 2022-08-08 09:22 /patches/dtls-cipher-suites.patch
+      818 2021-04-08 19:16 /patches/enable-cbr-by-default.patch
+     8831 2021-04-08 19:16 /patches/expose-crypto-option-aes-128-sha1-80.patch
+     3628 2021-04-12 13:32 /patches/expose-video-capturer-state.patch
+     1750 2021-04-08 19:16 /patches/force-dtls-1_2.patch
+    80867 2022-12-15 22:49 /patches/group-call-frame-crypto.patch
+     2461 2022-12-15 22:49 /patches/only-resolve-uuid-mdns-hostnames.patch
+     2574 2022-03-30 21:26 /patches/srtp-cipher-suites.patch
 
 **v100.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false`):
 
