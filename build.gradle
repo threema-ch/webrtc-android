@@ -15,8 +15,8 @@ plugins {
 
 ext {
     groupId = 'ch.threema'
-    webrtcVersion = '108'
-    libraryVersion = '108.0.0'
+    webrtcVersion = '110'
+    libraryVersion = '110.0.0'
 }
 
 apply plugin: 'com.android.library'
@@ -57,18 +57,16 @@ android {
     }
 }
 
-// In this section you declare where to find the dependencies of your project
+// Dependency and tool sources
 repositories {
     jcenter()
     google()
 }
 
-// In this section you declare the dependencies for your production and test code
+// Dependencies
 dependencies {
-    // LibWebRTC
+    // libwebrtc
     implementation files('libs/libwebrtc.jar')
-    // Test dependencies
-    testImplementation 'junit:junit:4.13.2'
 }
 
 // Note: Because the android components are created only during the
@@ -81,7 +79,6 @@ afterEvaluate {
                 from components.release
 
                 artifact androidSourcesJar
-                artifact androidJavadocsJar
 
                 groupId = project.ext.groupId
                 artifactId = project.name
@@ -139,14 +136,6 @@ afterEvaluate {
     }
 }
 
-task androidJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-    classifier = 'javadoc'
-    from androidJavadocs.destinationDir
-}
 task androidSourcesJar(type: Jar) {
     classifier = 'sources'
     from android.sourceSets.main.java.srcDirs
@@ -154,5 +143,4 @@ task androidSourcesJar(type: Jar) {
 
 artifacts {
     archives androidSourcesJar
-    archives androidJavadocsJar
 }
