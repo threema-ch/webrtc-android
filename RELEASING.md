@@ -8,7 +8,7 @@ Set variables:
 Ensure that `ossrhUsername` and `ossrhPassword` are defined in your
 `~/.gradle/gradle.properties` file.
 
-Update version numbers:
+Align SDK versions and bump versions:
 
     vim -p build.gradle README.md
 

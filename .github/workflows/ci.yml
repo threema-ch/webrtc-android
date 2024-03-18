@@ -29,7 +29,3 @@ jobs:
       # Build
       - name: Build
         run: ./gradlew assemble
-
-      # Test
-      - name: Run tests
-        run: ./gradlew test

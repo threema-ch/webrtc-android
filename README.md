@@ -281,7 +281,7 @@ Include it in your project like this:
 
 ## License
 
-    Copyright (c) 2019-2022 Threema GmbH
+    Copyright (c) 2019-2024 Threema GmbH
 
     Licensed under the Apache License, Version 2.0, <see LICENSE-APACHE file>
     or the MIT license <see LICENSE-MIT file>, at your option. This file may not be
