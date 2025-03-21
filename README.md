@@ -25,7 +25,7 @@ builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema:webrtc-android:123.0.0'
+compile 'ch.threema:webrtc-android:134.0.0'
 ```
 
 Maven:
@@ -34,7 +34,7 @@ Maven:
 <dependency>
   <groupId>ch.threema</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>123.0.0</version>
+  <version>134.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -44,6 +44,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v134.0.0 [`8d78f5de6c27b2c793039989ea381f1428fb0100`](https://webrtc.googlesource.com/src.git/+/8d78f5de6c27b2c793039989ea381f1428fb0100)
 - v123.0.0 [`41b1493ddb5d98e9125d5cb002fd57ce76ebd8a7`](https://webrtc.googlesource.com/src.git/+/41b1493ddb5d98e9125d5cb002fd57ce76ebd8a7)
 - v120.0.0 [`b0cc68e61205fd11a7256a6e85307ec17ad95790`](https://webrtc.googlesource.com/src.git/+/b0cc68e61205fd11a7256a6e85307ec17ad95790)
 - v114.0.0 [`a624ee1be7a11e795a849edb2a27dc1137d2b63d`](https://webrtc.googlesource.com/src.git/+/a624ee1be7a11e795a849edb2a27dc1137d2b63d)
@@ -72,6 +73,20 @@ These are the target commits for the releases:
 ## Patches / Build config
 
 The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
+
+**v134.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 debuggable_apks=false enable_libaom=false rtc_enable_protobuf=false rtc_include_dav1d_in_internal_decoder_factory=false`):
+
+      6261 2025-03-19 20:51 /patches/disable-dtmf-and-comfort-noise.patch
+      9723 2025-03-19 20:52 /patches/disable-unused-audio-codecs.patch
+       850 2025-03-19 20:54 /patches/dont-leak-video-orientation.patch
+       909 2025-03-19 20:55 /patches/dtls-cipher-suites.patch
+       942 2025-03-19 20:56 /patches/enable-cbr-by-default.patch
+      9209 2025-03-19 21:11 /patches/expose-certificate-fingerprint.patch
+      8365 2025-03-19 21:22 /patches/expose-crypto-option-aes-128-sha1-80.patch
+      3164 2025-03-19 21:23 /patches/expose-video-capturer-state.patch
+    103096 2025-03-20 17:05 /patches/group-call-frame-crypto.patch
+      2454 2025-03-19 21:28 /patches/only-resolve-uuid-mdns-hostnames.patch
+      2574 2025-03-19 21:32 /patches/srtp-cipher-suites.patch
 
 **v123.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false rtc_include_dav1d_in_internal_decoder_factory=false rtc_include_ilbc=false`):
 
