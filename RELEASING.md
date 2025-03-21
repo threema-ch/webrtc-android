@@ -6,7 +6,8 @@ Set variables:
     export GPG_KEY=E7ADD9914E260E8B35DFB50665FDE935573ACDA6
 
 Ensure that `ossrhUsername` and `ossrhPassword` are defined in your
-`~/.gradle/gradle.properties` file.
+`~/.gradle/gradle.properties` file. This **must not** be the OSSRH username but
+a generated access token (confusingly also having a username)!
 
 Align SDK versions and bump versions:
 
