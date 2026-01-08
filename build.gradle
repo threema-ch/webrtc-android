@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.9.0'
+        classpath 'com.android.tools.build:gradle:8.13.2'
     }
 }
 
@@ -15,8 +15,8 @@ plugins {
 
 ext {
     groupId = 'ch.threema'
-    webrtcVersion = '134'
-    libraryVersion = '134.0.0'
+    webrtcVersion = '144'
+    libraryVersion = '144.0.0'
 }
 
 apply plugin: 'com.android.library'
