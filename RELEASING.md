@@ -25,12 +25,14 @@ Publish the library to Sonatype OSS / Maven Central:
 
     ./gradlew publish
 
-Afterwards, go to <https://s01.oss.sonatype.org/#stagingRepositories> and:
+Afterwards, run the magic `curl` command from our password manager to transfer
+from the OSSRH Staging API compatibility service to the main Central Publisher
+Portal.
 
-- Close the repository
-- Release the repository
+Then, log into https://central.sonatype.com/publishing/deployments and hit
+_Publish_.
 
-*Note: It may take a while until the release is visible!*
+*Note: It may take a while until it is published!*
 
 Tag and push:
 
