@@ -25,7 +25,7 @@ builds.
 Gradle:
 
 ```groovy
-compile 'ch.threema:webrtc-android:144.0.0'
+compile 'ch.threema:webrtc-android:149.0.0'
 ```
 
 Maven:
@@ -34,7 +34,7 @@ Maven:
 <dependency>
   <groupId>ch.threema</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>144.0.0</version>
+  <version>149.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -44,6 +44,7 @@ Maven:
 
 These are the target commits for the releases:
 
+- v149.0.0 [`28311abc149a9bb7e6761a3d54f362a8d77e6793`](https://webrtc.googlesource.com/src.git/+/28311abc149a9bb7e6761a3d54f362a8d77e6793)
 - v144.0.0 [`8f3537ef5b85b4c7dabed2676d4b72214c69c494`](https://webrtc.googlesource.com/src.git/+/8f3537ef5b85b4c7dabed2676d4b72214c69c494)
 - v134.0.0 [`8d78f5de6c27b2c793039989ea381f1428fb0100`](https://webrtc.googlesource.com/src.git/+/8d78f5de6c27b2c793039989ea381f1428fb0100)
 - v123.0.0 [`41b1493ddb5d98e9125d5cb002fd57ce76ebd8a7`](https://webrtc.googlesource.com/src.git/+/41b1493ddb5d98e9125d5cb002fd57ce76ebd8a7)
@@ -75,6 +76,20 @@ These are the target commits for the releases:
 
 The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
 
+**v149.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false rtc_enable_protobuf=false rtc_include_dav1d_in_internal_decoder_factory=false`):
+
+      6266 Oct 21 00:02 disable-dtmf-and-comfort-noise.patch
+      9783 Oct 21 00:02 disable-unused-audio-codecs.patch
+       850 Oct 21 00:02 dont-leak-video-orientation.patch
+      4921 Oct 21 00:02 dtls-cipher-suites.patch
+       942 Oct 21 00:02 enable-cbr-by-default.patch
+      9231 Oct 21 00:02 expose-certificate-fingerprint.patch
+      8306 Oct 21 00:02 expose-crypto-option-aes-128-sha1-80.patch
+      3164 Oct 21 00:02 expose-video-capturer-state.patch
+      2343 Oct 21 00:02 only-resolve-uuid-mdns-hostnames.patch
+      2683 Oct 21 00:02 srtp-cipher-suites.patch
+    842397 Oct 27 12:20 use-mozilla-ca-cert-bundle.patch
+
 **v144.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 debuggable_apks=false enable_libaom=false rtc_enable_protobuf=false rtc_include_dav1d_in_internal_decoder_factory=false`):
 
       6221 2026-01-08 16:08 /patches/disable-dtmf-and-comfort-noise.patch
@@ -88,7 +103,6 @@ The builds are created using [webrtc-build-docker](https://github.com/threema-ch
     103164 2026-01-08 16:52 /patches/group-call-frame-crypto.patch
       2329 2026-01-08 16:08 /patches/only-resolve-uuid-mdns-hostnames.patch
       2683 2026-01-08 16:08 /patches/srtp-cipher-suites.patch
-
 
 **v134.0.0** (`WEBRTC_COMPILE_ARGS: symbol_level=1 debuggable_apks=false enable_libaom=false rtc_enable_protobuf=false rtc_include_dav1d_in_internal_decoder_factory=false`):
 
@@ -306,7 +320,7 @@ Like v84.0.0, but with the following additional patch:
 
 Releases to Maven Central are signed with the following PGP key:
 
-    pub   rsa4096 2016-09-06 [SC] [expires: 2026-09-04]
+    pub   rsa4096 2016-09-06 [SC]
           E7AD D991 4E26 0E8B 35DF  B506 65FD E935 573A CDA6
     uid           Threema Signing Key <dev@threema.ch>
 
@@ -327,7 +341,7 @@ Include it in your project like this:
 
 ## License
 
-    Copyright (c) 2019-2024 Threema GmbH
+    Copyright (c) Threema AG
 
     Licensed under the Apache License, Version 2.0, <see LICENSE-APACHE file>
     or the MIT license <see LICENSE-MIT file>, at your option. This file may not be
