@@ -25,11 +25,17 @@ Publish the library to Sonatype OSS / Maven Central:
 
     ./gradlew publish
 
-Afterwards, run the magic `curl` command from our password manager to transfer
-from the OSSRH Staging API compatibility service to the main Central Publisher
-Portal.
+Afterwards, run this command to transfer from the OSSRH Staging API
+compatibility service to the main Central Publisher Portal. Make sure you have
+exported the `OSSRH_TOKEN_USER` and `OSSRH_TOKEN_PASS` variables from
+`~/.gradle/gradle.properties`:
 
-Then, log into https://central.sonatype.com/publishing/deployments and hit
+    TOKEN=$(printf '%s:%s' "$OSSRH_TOKEN_USER" "$OSSRH_TOKEN_PASS" | base64)
+    curl -i -X POST \
+      -H "Authorization: Bearer $TOKEN" \
+      "https://ossrh-staging-api.central.sonatype.com/manual/upload/defaultRepository/ch.threema"
+
+Then, log into <https://central.sonatype.com/publishing/deployments> and hit
 _Publish_.
 
 *Note: It may take a while until it is published!*
